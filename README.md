@@ -4,3 +4,4 @@ Multinode Wazuh
 Ollama
 MySQL
 Website
+Haproxy
