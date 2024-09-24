@@ -1,6 +1,6 @@
-# IPWatch: Detecting IPs Utilized in Network Attacks
+# IPWatch: Detecting IPs Utilized in Network Attacks (Work in Progress!)
 
-
+In networks
 
 Multinode Wazuh
 Ollama
