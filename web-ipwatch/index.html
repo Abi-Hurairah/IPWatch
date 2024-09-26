@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Watch</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+     <!-- Link to external CSS -->
+     <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid navbar-custom">
+            <a class="navbar-brand" href="#">
+                <img src="assets/ub_web.png" alt="Universitas Brawijaya">
+            </a>
+            <a class="navbar-brand" href="#">
+                <strong>UNIVERSITAS BRAWIJAYA</strong> | BUILDING UP NOBLE FUTURE
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutUBDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            TENTANG UB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutUBDropdown">
+                            <li><a class="dropdown-item" href="#">Profil</a></li>
+                            <li><a class="dropdown-item" href="#">Sejarah</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            AKADEMIK
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="academicsDropdown">
+                            <li><a class="dropdown-item" href="#">Program Sarjana</a></li>
+                            <li><a class="dropdown-item" href="#">Program Pascasarjana</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultiesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            FAKULTAS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultiesDropdown">
+                            <li><a class="dropdown-item" href="#">Fakultas Teknik</a></li>
+                            <li><a class="dropdown-item" href="#">Fakultas Kedokteran</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="campusLifeDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            KEHIDUPAN KAMPUS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="campusLifeDropdown">
+                            <li><a class="dropdown-item" href="#">Kemahasiswaan</a></li>
+                            <li><a class="dropdown-item" href="#">Unit Kegiatan Mahasiswa</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            PENELITIAN
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="#">Penelitian Unggulan</a></li>
+                            <li><a class="dropdown-item" href="#">Kerja Sama</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="language-select d-flex align-items-center">
+                    <span class="me-2">BAHASA:</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/1024px-Flag_of_Indonesia.svg.png"
+                        alt="ID Flag" class="flag-icon">
+                    <span>IND</span>
+                </div>
+
+                <div class="search-container ms-3">
+                    <i class="bi bi-search search-icon"></i>
+                </div>
+            </div>
+        </div>  
+    </nav>
+
+    <!-- Main Content -->
+    <main> 
+    <div class="container">
+        <h1>IP WaTch</h1>
+        <p class="text-center">Analisis alamat IP untuk mendeteksi aktivitas berbahaya</p>
+
+        <div class="input-group mb-3">
+            <input type="text" id="ipAddress" class="form-control" placeholder="10.34.0.74">
+            <button class="btn btn-primary" onclick="searchIP()">Penelusuran IP</button>
+        </div>
+
+        <table id="attackTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Alamat IP</th>
+                    <th>Type Serangan</th>
+                    <th>Tingkat Ancaman</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Most-attacked">
+        <h1> TOP 10 Serangan Cyber di Universitas Brawijaya </h1>
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Key</th>
+                    <th>Document Count</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+            </tbody>
+        </table>
+    </div>
+</main>
+
+    <!-- Add Footer -->
+    <footer class="bg-blue py-5">
+        <div class="container_footer">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Kebijakan dan Aturan</a></li>
+                        <li><a href="#" class="text-light">Aturan Koneksi Internet dan Jaringan Komputer</a></li>
+                        <li><a href="#" class="text-light">Hak Cipta, Kewajiban dan Penggunaan</a></li>
+                        <li><a href="#" class="text-light">Kebijakan Server Institusional Universitas</a></li>
+                        <li><a href="#" class="text-light">Panduan Situs</a></li>
+                        <li><a href="#" class="text-light">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="#"><i class="fa fa-facebook-square fa-2x text-light"></i></a>
+                    <a href="#"><i class="fa fa-instagram fa-2x text-light ml-3"></i></a>
+                    <a href="#"><i class="fa fa-twitter-square fa-2x text-light ml-3"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="small mb-0">&copy; 2024 - UPT SISTEM DAN TEKNOLOGI INFORMASI UNIVERSITAS BRAWIJAYA</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function searchIP() {
+            // Hardcoded data
+            const ip = document.getElementById('ipAddress').value;
+            const attackData = [
+                { ip: ip, type: 'Hydra.Botnet', threat: 'high' },
+                { ip: ip, type: 'Remote.CMD.Shell', threat: 'critical' },
+                { ip: ip, type: 'Dnsmasq.answer_auth.answer_request.DoS', threat: 'high' },
+                { ip: ip, type: 'NTP.ntpd.Oversize.UDP.Packets.Handling.DoS', threat: 'high' },
+                { ip: ip, type: 'HP.IMC.Imcsylogdm.Use.After.Free', threat: 'medium' },
+                { ip: ip, type: 'Squid.Proxy.WCCP.RecvFrom.Buffer.Overflow', threat: 'high' },
+                { ip: ip, type: 'Squid.snmpHandleUdp.Off.by.one.Buffer.Overflow', threat: 'high' }
+            ];
+
+            // Clear previous table rows
+            const tableBody = document.querySelector('#attackTable tbody');
+            tableBody.innerHTML = '';
+
+            // Append each attack as a table row
+            attackData.forEach(attack => {
+                const row = `
+          <tr>
+            <td>${attack.ip}</td>
+            <td>${attack.type}</td>
+            <td>${attack.threat}</td>
+          </tr>
+        `;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        // most attacked calling api 
+        // Call API and insert data into table
+        // Fetching top 10 attacked data from API
+        async function fetchData() {
+            try {
+                const response = await fetch('http://10.255.50.8:5010/api/most-destination-attacked');
+                const data = await response.json();
+                const tableBody = document.getElementById('data-table');
+
+                data.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td>${item.key}</td>
+                            <td>${item.doc_count}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Fetch data when the page loads
+        window.onload = fetchData;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
