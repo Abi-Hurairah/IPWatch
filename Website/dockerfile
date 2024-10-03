@@ -1,0 +1,14 @@
+FROM php:8.2-apache
+
+# Install system dependencies and PHP extensions
+RUN apt-get update && apt-get install -y \
+    libcurl4-openssl-dev \
+    python3 \
+    python3-pip \
+    libmariadb-dev \
+    && docker-php-ext-install mysqli \
+    && docker-php-ext-install curl
+
+# Install MySQL extension
+RUN pip install requests --break-system-packages
+RUN pip install bs4 --break-system-packages
